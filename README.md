@@ -11,6 +11,5 @@ Serial terminal:
 picocom --imap crcrlf /dev/ttyUSB0 
 ```
 
-See this video  [video](<video src="basic controller/deca_sram.mp4"></video>)
+See this video  [video](deca_sram.mp4)
 
-<video src="basic controller/deca_sram.mp4"></video>
