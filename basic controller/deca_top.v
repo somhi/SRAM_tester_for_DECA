@@ -23,7 +23,7 @@ module deca_top(
 
   // sdram (sram wrapper)
   output wire [12:0] DRAM_ADDR, 
-  inout  tri  [15:0] DRAM_DQ,
+  inout  wire  [15:0] DRAM_DQ,     //inout tri
   output wire [1:0] DRAM_BA,   
   output wire DRAM_CLK,       
   output wire DRAM_CKE,
@@ -74,7 +74,7 @@ mister_sram sRam_inst (
   .SRAM_nWE  (SRAM_WE_n)
 );
 
-
+assign DRAM_CLK = 1'b0;
 
 // TOP Xilinx code
 // https://projects.digilentinc.com/salvador-canas/a-practical-introduction-to-sram-memories-using-an-fpga-i-3f3992
@@ -87,6 +87,8 @@ wire [20:0] addr_bus;
 
 wire button_wire;
 
+wire tx_start, rx_done_tick, is_receiving, is_transmitting, tx_ready, mem, rw;
+
 debouncer debouncer_unit (
   .clk(clk),     
   .PB(reset), 
@@ -94,19 +96,6 @@ debouncer debouncer_unit (
   .PB_down(), 
   .PB_up(button_wire)
 );
-
-// uart uart_unit (
-//   .clk(clk), 
-//   .reset(button_wire), 
-//   .data_in(UART_RXD), 
-//   .tx_start(tx_start), 
-//   .w_data(w_data_bus), 
-//   .data_out(UART_TXD), 
-//   .rx_done_tick(rx_done_tick), 
-//   .r_data(r_data_bus),
-//   .tx_ready(tx_ready),
-//   .tx_done_tick(tx_done_tick)
-// );
 
 // Serial usage:   picocom --imap crcrlf /dev/ttyUSB0 
 
