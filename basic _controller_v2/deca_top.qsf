@@ -175,10 +175,10 @@ set_location_assignment PIN_H4 -to EAR
 #============================================================
 # UART   (P8:3 Tx, 4 Rx GPIO0_D00/01) 
 #============================================================
-#set_location_assignment PIN_Y18 -to UART_RXD
-#set_location_assignment PIN_W18 -to UART_TXD
-set_location_assignment PIN_W3 -to UART_RXD
-set_location_assignment PIN_V17 -to UART_TXD
+set_location_assignment PIN_Y18 -to UART_RXD
+set_location_assignment PIN_W18 -to UART_TXD
+#set_location_assignment PIN_W3 -to UART_RXD
+#set_location_assignment PIN_V17 -to UART_TXD
 
 #============================================================
 # JOYSTICK 
@@ -395,14 +395,14 @@ set_location_assignment PIN_W11 -to DRAM_RAS_N
 set_location_assignment PIN_AB10 -to DRAM_WE_N
 set_location_assignment PIN_V12 -to DRAM_CS_N
 #DQMH/L & CKE not connected in Mister new SDRAM modules
-#set_location_assignment PIN_AA16 -to DRAM_CKE
-#set_location_assignment PIN_Y11 -to DRAM_LDQM
-#set_location_assignment PIN_W13 -to DRAM_UDQM
+set_location_assignment PIN_AA16 -to DRAM_UDQM 
+set_location_assignment PIN_AB17 -to DRAM_LDQM
+set_location_assignment PIN_W13 -to DRAM_CKE
 
 #for testing 3 pins sdram modules
-set_location_assignment PIN_W18 -to DRAM_CKE
-set_location_assignment PIN_Y19 -to DRAM_LDQM
-set_location_assignment PIN_AA17 -to DRAM_UDQM
+#set_location_assignment PIN_W18 -to DRAM_CKE
+#set_location_assignment PIN_Y19 -to DRAM_LDQM
+#set_location_assignment PIN_AA17 -to DRAM_UDQM
 
 
 # SDRAM set_instance_assignment
@@ -530,6 +530,7 @@ set_global_assignment -name VERILOG_FILE rtl/uart.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+
 
 
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

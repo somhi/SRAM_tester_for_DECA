@@ -14,3 +14,5 @@ picocom --imap crcrlf /dev/ttyUSB0
 See this [video](deca_sram.mp4)
 
 There are two versions, a very basic controller and v2 which is a more advanced and efficient controller.
+
+**Basic controller v2 is not working well**
